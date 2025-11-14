@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Pages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #ffffff);
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 5rem 1.5rem;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+            overflow: hidden;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .header-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .select-all-btn {
+            width: 2.25rem;
+            height: 2.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .select-all-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .select-all-btn svg {
+            width: 1.125rem;
+            height: 1.125rem;
+            stroke: #cbd5e1;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .pages-list {
+            margin-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1rem;
+        }
+
+        .page-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .page-item:last-child {
+            border-bottom: none;
+        }
+
+        .page-label {
+            font-size: 0.875rem;
+            color: #1e293b;
+            font-weight: 400;
+        }
+
+        .checkbox-btn {
+            width: 2.25rem;
+            height: 2.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .checkbox-btn:hover {
+            border-color: #cbd5e1;
+            background: #f8fafc;
+        }
+
+        .checkbox-btn.checked {
+            background: #2563eb;
+            border-color: #2563eb;
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.24);
+        }
+
+        .checkbox-btn svg {
+            width: 1rem;
+            height: 1rem;
+            stroke: #ffffff;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .card-footer {
+            border-top: 1px solid #e2e8f0;
+            padding: 1.5rem;
+        }
+
+        .done-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #fbbf24;
+            color: #1e293b;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.06);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .done-btn:hover {
+            background: #fcd34d;
+            box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .done-btn:active {
+            background: #f9a825;
+            box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-text {
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: #78909c;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .card-content {
+                padding: 1.25rem;
+            }
+
+            .header-title {
+                font-size: 1rem;
+            }
+
+            .page-label {
+                font-size: 0.8125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="card">
+                <div class="card-content">
+                    <div class="header">
+                        <h1 class="header-title">All pages</h1>
+                        <button class="select-all-btn" id="selectAllBtn" aria-label="Select all">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="4" fill="white" stroke="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="pages-list">
+                        <div class="page-item">
+                            <span class="page-label">Page 1</span>
+                            <button class="checkbox-btn page-checkbox" data-page="1" aria-pressed="false">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="page-item">
+                            <span class="page-label">Page 2</span>
+                            <button class="checkbox-btn page-checkbox" data-page="2" aria-pressed="false">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="page-item">
+                            <span class="page-label">Page 3</span>
+                            <button class="checkbox-btn page-checkbox" data-page="3" aria-pressed="false">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="page-item">
+                            <span class="page-label">Page 4</span>
+                            <button class="checkbox-btn page-checkbox" data-page="4" aria-pressed="false">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button class="done-btn" id="doneBtn">Done</button>
+                </div>
+            </div>
+
+            <div class="footer-text" id="message"></div>
+        </div>
+    </div>
+
+    <script>
+        const selectAllBtn = document.getElementById('selectAllBtn');
+        const doneBtn = document.getElementById('doneBtn');
+        const pageCheckboxes = document.querySelectorAll('.page-checkbox');
+        const messageEl = document.getElementById('message');
+
+        function updateSelectAllBtn() {
+            const allChecked = Array.from(pageCheckboxes).every(cb => cb.classList.contains('checked'));
+            if (allChecked) {
+                selectAllBtn.classList.add('checked');
+            } else {
+                selectAllBtn.classList.remove('checked');
+            }
+        }
+
+        pageCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', () => {
+                checkbox.classList.toggle('checked');
+                checkbox.setAttribute('aria-pressed', checkbox.classList.contains('checked'));
+                updateSelectAllBtn();
+            });
+        });
+
+        selectAllBtn.addEventListener('click', () => {
+            const allCurrentlyChecked = Array.from(pageCheckboxes).every(cb => cb.classList.contains('checked'));
+            pageCheckboxes.forEach(cb => {
+                if (!allCurrentlyChecked) {
+                    cb.classList.add('checked');
+                    cb.setAttribute('aria-pressed', 'true');
+                } else {
+                    cb.classList.remove('checked');
+                    cb.setAttribute('aria-pressed', 'false');
+                }
+            });
+            updateSelectAllBtn();
+        });
+
+        doneBtn.addEventListener('click', () => {
+            const selectedPages = Array.from(pageCheckboxes)
+                .filter(cb => cb.classList.contains('checked'))
+                .map(cb => cb.dataset.page);
+            messageEl.textContent = selectedPages.length > 0 
+                ? `Selected: Page ${selectedPages.join(', Page ')}`
+                : 'No pages selected';
+        });
+
+        // Fetch server message (optional)
+        fetch('/api/demo')
+            .then(res => res.json())
+            .then(data => {
+                if (data.message && !messageEl.textContent) {
+                    messageEl.textContent = data.message;
+                }
+            })
+            .catch(err => console.error('Error:', err));
+    </script>
+  
+
+</body>
+</html>
